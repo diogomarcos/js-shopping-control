@@ -10,6 +10,7 @@ function getTotal(list) {
     for(var key in list) {
         total += list[key].value * list[key].amount;
     }
+
     return total;
 }
 console.log(getTotal(list));
@@ -24,11 +25,11 @@ function setList(list) {
                     '</tr>' +
                 '</thead>' +
                 '<tbody>';
-    for(var key in list){
+    for(var key in list) {
         table += '<tr>' +
-                    '<td>'+ list[key].desc +'</td>' +
+                    '<td>'+ formatDesc(list[key].desc) +'</td>' +
                     '<td>'+ list[key].amount +'</td>' +
-                    '<td>'+ list[key].value +'</td>' +
+                    '<td>'+ formatValue(list[key].value) +'</td>' +
                     '<td>Edit | Delete</td>' +
                  '</tr>';
     }
@@ -36,3 +37,18 @@ function setList(list) {
     document.getElementById("listTable").innerHTML = table;
 }
 setList(list);
+
+function formatDesc(desc) {
+    var str = desc.toLowerCase();
+    str = str.charAt(0).toUpperCase() + str.slice(1);
+
+    return str;
+}
+
+function  formatValue(value) {
+    var str = parseFloat(value).toFixed(2) + '';
+    str = str.replace('.',',');
+    str = '$ ' + str;
+
+    return str;
+}
