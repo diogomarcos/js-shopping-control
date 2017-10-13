@@ -40,8 +40,9 @@ function setList(list) {
     document.getElementById("listTable").innerHTML = table;
 
     getTotal(list);
+
+    saveListStorage(list);
 }
-setList(list);
 
 function formatDesc(desc) {
     var str = desc.toLowerCase();
@@ -184,3 +185,20 @@ function deleteList() {
         setList(list);
     }
 }
+
+function saveListStorage(list) {
+    var jsonStr = JSON.stringify(list);
+
+    localStorage.setItem("list",jsonStr);
+}
+
+function initListStorage() {
+    var testList = localStorage.getItem("list");
+
+    if(testList) {
+        list = JSON.parse(testList);
+    }
+
+    setList(list);
+}
+initListStorage();
