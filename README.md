@@ -44,7 +44,7 @@ o comando abaixo para executar a aplicação:
 ### Considerações Complementares
 1. Para ter acesso ao review online da aplicação, basta utilizar o endereço abaixo:
 
-        https://js-shopping-control.herokuapp.com/
+        http://js-shopping-control.diogomarcos.com/
 
 ### Resultado do Desenvolvimento
 Abaixo estão disponibilizados as telas da aplicação:
